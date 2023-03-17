@@ -36,7 +36,7 @@
 
             <div class="modal-footer">
 
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Update Data </button>
             </div>
         </form>
     </div>
