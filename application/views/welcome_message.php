@@ -75,19 +75,19 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">Name</label>
 							<input type="name" class="form-control" id="user_name" name="user_name"
-								aria-describedby="emailHelp" placeholder="Enter Name">
+								aria-describedby="emailHelp" placeholder="Enter Name" required>
 
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email address</label>
 							<input type="email" class="form-control" id="user_email" name="user_email"
-								aria-describedby="emailHelp" placeholder="Enter email">
+								aria-describedby="emailHelp" placeholder="Enter email" required>
 
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" id="user_password" name="user_password"
-								placeholder="Password">
+								placeholder="Password" required>
 						</div>
 
 						<div class="modal-footer">
@@ -100,6 +100,9 @@
 			</div>
 		</div>
 	</div>
+	<?php  if($this->session->flashdata('error')):?>
+	<?php  echo $this->session->flashdata('error');?>
+	<?php endif; ?>
 	<pre>
 	<?php
 	print_r($product_details);

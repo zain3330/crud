@@ -54,11 +54,24 @@ class Welcome extends CI_Controller
 
 	public function insert()
 	{
+		$this->form_validation->set_rules('user_name','User Name','trim|required');
+		$this->form_validation->set_rules('user_email','User Email','trim|required');
+		$this->form_validation->set_rules('user_password','User Password','trim|required');
+
+		
+		if($this->form_validation->run()==false){
+			$data_error=[
+				'error'=> validation_errors()
+			];
+			$this->session->set_flashdata($data_error);
+		}
+		else{
 		$this->UserModel->insertdata([
 			'user_name' => $this->input->post('user_name'),
 			'user_email' => $this->input->post('user_email'),
 			'user_password' => $this->input->post('user_password'),
 		]);
+	}
 		redirect('index.php');
 	}
 	public function delete($id)
@@ -69,6 +82,7 @@ class Welcome extends CI_Controller
 	}
 	public function edit($id)
 	{
+
 		$data['product'] = $this->UserModel->edit_model($id);
 		$this->load->view('edit_user', $data);
 

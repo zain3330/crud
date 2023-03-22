@@ -18,19 +18,19 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Name</label>
                 <input type="name" class="form-control" id="user_name" name="user_name" aria-describedby="emailHelp"
-                    placeholder="Enter Name" value="<?php echo $product->user_name ?>">
+                    placeholder="Enter Name" value="<?php echo $product->user_name ?>" required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="user_email" name="user_email" aria-describedby="emailHelp"
-                    placeholder="Enter email" value="<?php echo $product->user_email ?>">
+                    placeholder="Enter email" value="<?php echo $product->user_email ?>" required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="user_password" name="user_password"
-                    placeholder="Password" value="<?php echo $product->user_password ?>">
+                    placeholder="Password" value="<?php echo $product->user_password ?>" required>
             </div>
 
 
