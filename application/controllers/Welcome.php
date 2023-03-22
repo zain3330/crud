@@ -90,11 +90,24 @@ class Welcome extends CI_Controller
 	}
 	public function update($id)
 	{
+		$this->form_validation->set_rules('user_name','User Name','trim|required');
+		$this->form_validation->set_rules('user_email','User Email','trim|required');
+		$this->form_validation->set_rules('user_password','User Password','trim|required');
+
+		
+		if($this->form_validation->run()==false){
+			$data_error=[
+				'error'=> validation_errors()
+			];
+			$this->session->set_flashdata($data_error);
+		}
+		else{
 		$this->UserModel->updatedata([
 			'user_name' => $this->input->post('user_name'),
 			'user_email' => $this->input->post('user_email'),
 			'user_password' => $this->input->post('user_password'),
 		], $id);
+	}
 		redirect('index.php');
 
 
